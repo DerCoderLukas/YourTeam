@@ -27,7 +27,7 @@ final class MemberRepositoryTest {
   @Test
   void testMemberRegistration() {
     repository.register(member);
-    assertEquals(repository.members().size(), 1);
+    assertEquals(1, repository.members().size());
   }
 
   @Test

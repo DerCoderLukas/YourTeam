@@ -35,7 +35,7 @@ final class GroupRepositoryTest {
   @Test
   void testGroupRegistration() {
     repository.register(group);
-    assertEquals(repository.groups().size(), 1);
+    assertEquals(1, repository.groups().size());
   }
 
   @Test

@@ -18,18 +18,18 @@ final class MemberTest {
   @Test
   void testPointAdding() {
     member.addPoints(10);
-    assertEquals(member.points(), 10);
+    assertEquals(10, member.points());
   }
 
   @Test
   void testPointRemoving() {
     member.removePoints(10);
-    assertEquals(member.points(), -10);
+    assertEquals(-10, member.points());
   }
 
   @Test
   void testPointSetting() {
     member.setPoints(10);
-    assertEquals(member.points(), 10);
+    assertEquals(10, member.points());
   }
 }

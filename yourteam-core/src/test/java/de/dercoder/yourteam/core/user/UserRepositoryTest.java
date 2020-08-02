@@ -25,7 +25,7 @@ final class UserRepositoryTest {
   @Test
   void testUserRegistration() {
     repository.register(user);
-    assertEquals(repository.users().size(), 2);
+    assertEquals(2, repository.users().size());
   }
 
   @Test
