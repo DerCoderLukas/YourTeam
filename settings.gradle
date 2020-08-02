@@ -1,0 +1,5 @@
+rootProject.name = 'YourTeam'
+
+include 'yourteam-core'
+include 'yourteam-deploy'
+include 'yourteam-administration'

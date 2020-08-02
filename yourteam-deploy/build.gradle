@@ -1,0 +1,20 @@
+plugins {
+  id 'org.springframework.boot' version '2.3.2.RELEASE'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+
+dependencies {
+  compile project(':yourteam-core')
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
+  compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.1'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.2.RELEASE'
+  compile 'io.jsonwebtoken:jjwt-api:0.11.2'
+  compile 'io.jsonwebtoken:jjwt-impl:0.11.2'
+  compile 'io.jsonwebtoken:jjwt-gson:0.11.2'
+}
+
+bootJar {
+  mainClassName = 'de.dercoder.yourteam.deploy.TeamDeployApplication'
+}
