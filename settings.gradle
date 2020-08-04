@@ -1,4 +1,4 @@
-rootProject.name = 'YourTeam'
+rootProject.name = 'yourteam'
 
 include 'yourteam-core'
 include 'yourteam-deploy'
