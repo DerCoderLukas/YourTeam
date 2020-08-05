@@ -2,6 +2,10 @@ package de.dercoder.yourteam.deploy.configuration;
 
 import com.google.common.base.Preconditions;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
+@Singleton
 public final class ConfigurationRepository {
   private final Configuration configuration;
 

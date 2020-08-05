@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 
 import com.google.common.base.Preconditions;
 
+import com.google.inject.Singleton;
+
+@Singleton
 public final class UserRepository {
   private final UserFile file;
   private final List<User> users;

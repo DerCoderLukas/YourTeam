@@ -7,6 +7,9 @@ import java.util.stream.Collectors;
 
 import com.google.common.base.Preconditions;
 
+import com.google.inject.Singleton;
+
+@Singleton
 public final class MemberRepository {
   private final MemberFile file;
   private final List<Member> members;

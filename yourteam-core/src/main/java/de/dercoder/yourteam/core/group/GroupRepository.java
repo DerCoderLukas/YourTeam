@@ -6,8 +6,11 @@ import java.util.stream.Collectors;
 
 import com.google.common.base.Preconditions;
 
+import com.google.inject.Singleton;
+
 import de.dercoder.yourteam.core.member.MemberRepository;
 
+@Singleton
 public final class GroupRepository {
   private final GroupFile file;
   private final List<Group> groups;

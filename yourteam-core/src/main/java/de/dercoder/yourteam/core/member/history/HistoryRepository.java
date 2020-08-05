@@ -6,9 +6,12 @@ import java.util.stream.Collectors;
 
 import com.google.common.base.Preconditions;
 
+import com.google.inject.Singleton;
+
 import de.dercoder.yourteam.core.member.Member;
 import de.dercoder.yourteam.core.member.MemberRepository;
 
+@Singleton
 public final class HistoryRepository {
   private final History history;
 

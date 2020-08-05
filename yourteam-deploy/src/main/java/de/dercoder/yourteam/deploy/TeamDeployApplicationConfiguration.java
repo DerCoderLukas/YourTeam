@@ -1,6 +1,7 @@
 package de.dercoder.yourteam.deploy;
 
 import com.google.inject.Guice;
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 import de.dercoder.yourteam.core.group.GroupFile;
@@ -17,10 +18,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class TeamDeployApplicationConfiguration {
-  private Injector injector;
+  @Inject
   private ConfigurationRepository configurationRepository;
+  @Inject
   private UserRepository userRepository;
+  @Inject
   private MemberRepository memberRepository;
+  @Inject
   private GroupRepository groupRepository;
 
   @Bean
@@ -46,30 +50,7 @@ public class TeamDeployApplicationConfiguration {
   @PostConstruct
   private void createModuleInjector() throws Exception {
     var module = TeamDeployModule.create();
-    injector = Guice.createInjector(module);
-    createConfigurationRepository();
-    createUserRepository();
-    createMemberRepository();
-    createGroupRepository();
-  }
-
-  private void createConfigurationRepository() throws Exception {
-    var file = injector.getInstance(ConfigurationFile.class);
-    configurationRepository = ConfigurationRepository.forFile(file);
-  }
-
-  private void createUserRepository() throws Exception {
-    var file = injector.getInstance(UserFile.class);
-    userRepository = UserRepository.forFile(file);
-  }
-
-  private void createMemberRepository() throws Exception {
-    var file = injector.getInstance(MemberFile.class);
-    memberRepository = MemberRepository.forFile(file);
-  }
-
-  private void createGroupRepository() throws Exception {
-    var file = injector.getInstance(GroupFile.class);
-    groupRepository = GroupRepository.forFile(file, memberRepository);
+    var injector = Guice.createInjector(module);
+    injector.injectMembers(this);
   }
 }
