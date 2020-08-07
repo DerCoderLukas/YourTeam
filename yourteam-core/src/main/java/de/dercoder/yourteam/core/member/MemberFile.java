@@ -30,12 +30,13 @@ public final class MemberFile {
     if (handleFileExistence(file)) {
       throw new Exception("Can't create file");
     }
-    if (file.length() == 0) {
+    try {
+      return objectMapper.readValue(file, MemberFileModel.class);
+    } catch (Exception exception) {
       var memberFileTemplate = createMemberFileTemplate();
       write(memberFileTemplate);
       return memberFileTemplate;
     }
-    return objectMapper.readValue(file, MemberFileModel.class);
   }
 
   private MemberFileModel createMemberFileTemplate() {

@@ -30,12 +30,13 @@ public final class GroupFile {
     if (handleFileExistence(file)) {
       throw new Exception("Can't create file");
     }
-    if (file.length() == 0) {
+    try {
+      return objectMapper.readValue(file, GroupFileModel.class);
+    } catch (Exception exception) {
       var groupFileTemplate = createGroupFileTemplate();
       write(groupFileTemplate);
       return groupFileTemplate;
     }
-    return objectMapper.readValue(file, GroupFileModel.class);
   }
 
   private GroupFileModel createGroupFileTemplate() {

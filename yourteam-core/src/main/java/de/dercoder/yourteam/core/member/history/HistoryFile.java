@@ -30,12 +30,13 @@ public final class HistoryFile {
     if (!handleFileExistence(file)) {
       throw new Exception("Can't create file");
     }
-    if (file.length() == 0) {
+    try {
+      return objectMapper.readValue(file, HistoryFileModel.class);
+    } catch (Exception exception) {
       var historyFileTemplate = createHistoryFileTemplate();
       write(historyFileTemplate);
       return historyFileTemplate;
     }
-    return objectMapper.readValue(file, HistoryFileModel.class);
   }
 
   private HistoryFileModel createHistoryFileTemplate() {

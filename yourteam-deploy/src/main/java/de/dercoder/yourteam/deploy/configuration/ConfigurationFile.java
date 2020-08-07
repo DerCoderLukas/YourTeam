@@ -31,12 +31,13 @@ public final class ConfigurationFile {
     if (handleFileExistence(file)) {
       throw new Exception("Can't create file");
     }
-    if (file.length() == 0) {
+    try {
+      return objectMapper.readValue(file, Configuration.class);
+    } catch (Exception exception) {
       var configuration = createConfigurationTemplate();
       write(configuration);
       return configuration;
     }
-    return objectMapper.readValue(file, Configuration.class);
   }
 
   private Configuration createConfigurationTemplate() {

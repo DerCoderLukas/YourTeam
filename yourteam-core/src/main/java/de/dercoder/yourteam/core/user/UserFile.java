@@ -31,12 +31,13 @@ public final class UserFile {
     if (handleFileExistence(file)) {
       throw new Exception("Can't create file");
     }
-    if (file.length() == 0) {
+    try {
+      return objectMapper.readValue(file, UserFileModel.class);
+    } catch (Exception exception) {
       var userFileTemplate = createUserFileTemplate();
       write(userFileTemplate);
       return userFileTemplate;
     }
-    return objectMapper.readValue(file, UserFileModel.class);
   }
 
   private UserFileModel createUserFileTemplate() {
