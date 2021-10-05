@@ -9,7 +9,7 @@ dependencies {
   compile project(':yourteam-core')
 
   compile 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
-  compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.5'
+  compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0'
   compile 'org.springframework.boot:spring-boot-starter-web:2.5.5'
   
   compile 'io.jsonwebtoken:jjwt-api:0.11.2'
