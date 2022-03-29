@@ -8,7 +8,7 @@ apply plugin: 'io.spring.dependency-management'
 dependencies {
   compile project(':yourteam-core')
 
-  compile 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.13.2.2'
   compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.1'
   compile 'org.springframework.boot:spring-boot-starter-web:2.6.2'
   
